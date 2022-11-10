@@ -1,0 +1,31 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity corrimiento is 
+port(clk,s,der:in std_logic;
+		d0,d1,d2,d3,d4,d5:inout std_logic_vector(6 downto 0));
+end corrimiento;
+
+architecture a of corrimiento is
+begin
+process(clk)
+	begin
+	if rising_edge(clk) and (s='0') then
+		if (der='1') then	
+			u3: entity work.display(a) port map (clk,d0,d1);
+			u4: entity work.display(a) port map (clk,d1,d2);
+			u5: entity work.display(a) port map (clk,d2,d3);
+			u6: entity work.display(a) port map (clk,d3,d4);
+			u7: entity work.display(a) port map (clk,d4,d5);
+			u8: entity work.display(a) port map (clk,d5,d0);
+		else 
+			u9: entity work.display(a) port map (clk,d0,d5);
+			u10: entity work.display(a) port map (clk,d1,d0);
+			u11: entity work.display(a) port map (clk,d2,d1);
+			u12: entity work.display(a) port map (clk,d3,d2);
+			u13: entity work.display(a) port map (clk,d4,d3);
+			u14: entity work.display(a) port map (clk,d5,d4);
+		end if;
+	end if;
+	
+end architecture a;

@@ -1,0 +1,247 @@
+|ControlTREN
+clk => relojlento:u1.clkl
+estacion => states:u2.estacion
+alto => states:u2.alto
+emergencia => states:u2.emergencia
+direccion => states:u2.direccion
+direccion => moore:u3.dir
+direccion => moore:u4.dir
+direccion => moore:u5.dir
+direccion => moore:u6.dir
+direccion => moore:u7.dir
+direccion => moore:u8.dir
+alto2 <= states:u2.alto2
+alto1 <= states:u2.alto1
+izq <= states:u2.izquierda
+der <= states:u2.derecha
+d0[0] <= moore:u8.sal[0]
+d0[1] <= moore:u8.sal[1]
+d0[2] <= moore:u8.sal[2]
+d0[3] <= moore:u8.sal[3]
+d0[4] <= moore:u8.sal[4]
+d0[5] <= moore:u8.sal[5]
+d0[6] <= moore:u8.sal[6]
+d1[0] <= moore:u7.sal[0]
+d1[1] <= moore:u7.sal[1]
+d1[2] <= moore:u7.sal[2]
+d1[3] <= moore:u7.sal[3]
+d1[4] <= moore:u7.sal[4]
+d1[5] <= moore:u7.sal[5]
+d1[6] <= moore:u7.sal[6]
+d2[0] <= moore:u6.sal[0]
+d2[1] <= moore:u6.sal[1]
+d2[2] <= moore:u6.sal[2]
+d2[3] <= moore:u6.sal[3]
+d2[4] <= moore:u6.sal[4]
+d2[5] <= moore:u6.sal[5]
+d2[6] <= moore:u6.sal[6]
+d3[0] <= moore:u5.sal[0]
+d3[1] <= moore:u5.sal[1]
+d3[2] <= moore:u5.sal[2]
+d3[3] <= moore:u5.sal[3]
+d3[4] <= moore:u5.sal[4]
+d3[5] <= moore:u5.sal[5]
+d3[6] <= moore:u5.sal[6]
+d4[0] <= moore:u4.sal[0]
+d4[1] <= moore:u4.sal[1]
+d4[2] <= moore:u4.sal[2]
+d4[3] <= moore:u4.sal[3]
+d4[4] <= moore:u4.sal[4]
+d4[5] <= moore:u4.sal[5]
+d4[6] <= moore:u4.sal[6]
+d5[0] <= moore:u3.sal[0]
+d5[1] <= moore:u3.sal[1]
+d5[2] <= moore:u3.sal[2]
+d5[3] <= moore:u3.sal[3]
+d5[4] <= moore:u3.sal[4]
+d5[5] <= moore:u3.sal[5]
+d5[6] <= moore:u3.sal[6]
+
+
+|ControlTREN|relojlento:u1
+clkl => led~reg0.CLK
+clkl => conteo[0].CLK
+clkl => conteo[1].CLK
+clkl => conteo[2].CLK
+clkl => conteo[3].CLK
+clkl => conteo[4].CLK
+clkl => conteo[5].CLK
+clkl => conteo[6].CLK
+clkl => conteo[7].CLK
+clkl => conteo[8].CLK
+clkl => conteo[9].CLK
+clkl => conteo[10].CLK
+clkl => conteo[11].CLK
+clkl => conteo[12].CLK
+clkl => conteo[13].CLK
+clkl => conteo[14].CLK
+clkl => conteo[15].CLK
+clkl => conteo[16].CLK
+clkl => conteo[17].CLK
+clkl => conteo[18].CLK
+clkl => conteo[19].CLK
+clkl => conteo[20].CLK
+clkl => conteo[21].CLK
+clkl => conteo[22].CLK
+clkl => conteo[23].CLK
+clkl => conteo[24].CLK
+led <= led~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ControlTREN|states:u2
+clk => estado_actual.CLK
+estacion => estado_siguiente.DATAB
+estacion => alto2.DATAB
+alto => estado_siguiente.OUTPUTSELECT
+alto => alto1.OUTPUTSELECT
+alto => izquierda.IN0
+emergencia => estado_siguiente.DATAA
+emergencia => alto1.DATAA
+emergencia => izquierda.IN1
+direccion => izquierda$latch.DATAIN
+direccion => derecha$latch.DATAIN
+sal <= estado_actual.DB_MAX_OUTPUT_PORT_TYPE
+alto2 <= alto2.DB_MAX_OUTPUT_PORT_TYPE
+alto1 <= alto1.DB_MAX_OUTPUT_PORT_TYPE
+izquierda <= izquierda$latch.DB_MAX_OUTPUT_PORT_TYPE
+derecha <= derecha$latch.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ControlTREN|moore:u3
+clk => bandera.CLK
+clk => present_state[0].CLK
+clk => present_state[1].CLK
+clk => present_state[2].CLK
+s => bandera.ENA
+s => present_state[0].ENA
+s => present_state[1].ENA
+s => present_state[2].ENA
+dir => next_state[2].OUTPUTSELECT
+dir => next_state[1].OUTPUTSELECT
+qi[0] => present_state.DATAA
+qi[1] => present_state.DATAA
+qi[2] => present_state.DATAA
+sal[0] <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
+sal[1] <= <VCC>
+sal[2] <= <VCC>
+sal[3] <= <VCC>
+sal[4] <= <VCC>
+sal[5] <= <VCC>
+sal[6] <= <VCC>
+
+
+|ControlTREN|moore:u4
+clk => bandera.CLK
+clk => present_state[0].CLK
+clk => present_state[1].CLK
+clk => present_state[2].CLK
+s => bandera.ENA
+s => present_state[0].ENA
+s => present_state[1].ENA
+s => present_state[2].ENA
+dir => next_state[2].OUTPUTSELECT
+dir => next_state[1].OUTPUTSELECT
+qi[0] => present_state.DATAA
+qi[1] => present_state.DATAA
+qi[2] => present_state.DATAA
+sal[0] <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
+sal[1] <= <VCC>
+sal[2] <= <VCC>
+sal[3] <= <VCC>
+sal[4] <= <VCC>
+sal[5] <= <VCC>
+sal[6] <= <VCC>
+
+
+|ControlTREN|moore:u5
+clk => bandera.CLK
+clk => present_state[0].CLK
+clk => present_state[1].CLK
+clk => present_state[2].CLK
+s => bandera.ENA
+s => present_state[0].ENA
+s => present_state[1].ENA
+s => present_state[2].ENA
+dir => next_state[2].OUTPUTSELECT
+dir => next_state[1].OUTPUTSELECT
+qi[0] => present_state.DATAA
+qi[1] => present_state.DATAA
+qi[2] => present_state.DATAA
+sal[0] <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
+sal[1] <= <VCC>
+sal[2] <= <VCC>
+sal[3] <= <VCC>
+sal[4] <= <VCC>
+sal[5] <= <VCC>
+sal[6] <= <VCC>
+
+
+|ControlTREN|moore:u6
+clk => bandera.CLK
+clk => present_state[0].CLK
+clk => present_state[1].CLK
+clk => present_state[2].CLK
+s => bandera.ENA
+s => present_state[0].ENA
+s => present_state[1].ENA
+s => present_state[2].ENA
+dir => next_state[2].OUTPUTSELECT
+dir => next_state[1].OUTPUTSELECT
+qi[0] => present_state.DATAA
+qi[1] => present_state.DATAA
+qi[2] => present_state.DATAA
+sal[0] <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
+sal[1] <= <VCC>
+sal[2] <= <VCC>
+sal[3] <= <VCC>
+sal[4] <= <VCC>
+sal[5] <= <VCC>
+sal[6] <= <VCC>
+
+
+|ControlTREN|moore:u7
+clk => bandera.CLK
+clk => present_state[0].CLK
+clk => present_state[1].CLK
+clk => present_state[2].CLK
+s => bandera.ENA
+s => present_state[0].ENA
+s => present_state[1].ENA
+s => present_state[2].ENA
+dir => next_state[2].OUTPUTSELECT
+dir => next_state[1].OUTPUTSELECT
+qi[0] => present_state.DATAA
+qi[1] => present_state.DATAA
+qi[2] => present_state.DATAA
+sal[0] <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
+sal[1] <= <VCC>
+sal[2] <= <VCC>
+sal[3] <= <VCC>
+sal[4] <= <VCC>
+sal[5] <= <VCC>
+sal[6] <= <VCC>
+
+
+|ControlTREN|moore:u8
+clk => bandera.CLK
+clk => present_state[0].CLK
+clk => present_state[1].CLK
+clk => present_state[2].CLK
+s => bandera.ENA
+s => present_state[0].ENA
+s => present_state[1].ENA
+s => present_state[2].ENA
+dir => next_state[2].OUTPUTSELECT
+dir => next_state[1].OUTPUTSELECT
+qi[0] => present_state.DATAA
+qi[1] => present_state.DATAA
+qi[2] => present_state.DATAA
+sal[0] <= Mux4.DB_MAX_OUTPUT_PORT_TYPE
+sal[1] <= <VCC>
+sal[2] <= <VCC>
+sal[3] <= <VCC>
+sal[4] <= <VCC>
+sal[5] <= <VCC>
+sal[6] <= <VCC>
+
+

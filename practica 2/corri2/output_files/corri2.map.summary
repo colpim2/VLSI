@@ -1,0 +1,16 @@
+Analysis & Synthesis Status : Successful - Sat Sep 24 18:42:21 2022
+Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+Revision Name : corri2
+Top-level Entity Name : corri2
+Family : MAX 10
+Total logic elements : 78
+    Total combinational functions : 57
+    Dedicated logic registers : 57
+Total registers : 57
+Total pins : 37
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0
+UFM blocks : 0
+ADC blocks : 0

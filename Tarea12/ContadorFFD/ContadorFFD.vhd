@@ -1,0 +1,16 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+Entity ContadorFFD is
+Port( clk: in std_logic;
+		Q0, Q1, Q2: inout std_logic);
+End ContadorFFD;
+
+Architecture arqconta3Bit of ContadorFFD is
+Signal d0,d1,d2: std_logic;
+Begin
+	u1: entity work.combinacional(arqcomb) port map(Q0,Q1,Q2,d0,d1,d2);
+	u2: entity work.FFD(arqFFD) port map(d0,clk,Q0);
+	u3: entity work.FFD(arqFFD) port map(d1,clk,Q1);
+	u4: entity work.FFD(arqFFD) port map(d2,clk,Q2);
+End Architecture;

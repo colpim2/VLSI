@@ -1,0 +1,69 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "alto2",
+					"strict" : false
+				},
+				{
+					"name" : "alto1",
+					"strict" : false
+				},
+				{
+					"name" : "izq",
+					"strict" : false
+				},
+				{
+					"name" : "der",
+					"strict" : false
+				},
+				{
+					"name" : "d0[0]",
+					"strict" : false
+				},
+				{
+					"name" : "d1[0]",
+					"strict" : false
+				},
+				{
+					"name" : "d2[0]",
+					"strict" : false
+				},
+				{
+					"name" : "d3[0]",
+					"strict" : false
+				},
+				{
+					"name" : "d4[0]",
+					"strict" : false
+				},
+				{
+					"name" : "d5[0]",
+					"strict" : false
+				},
+				{
+					"name" : "estacion",
+					"strict" : false
+				},
+				{
+					"name" : "emergencia",
+					"strict" : false
+				},
+				{
+					"name" : "alto",
+					"strict" : false
+				},
+				{
+					"name" : "direccion",
+					"strict" : false
+				},
+				{
+					"name" : "clk",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

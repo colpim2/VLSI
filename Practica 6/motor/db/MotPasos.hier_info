@@ -1,0 +1,81 @@
+|motor
+clk => divf:u1.clk
+ud => motpasos:u2.ud
+rst => motpasos:u2.rst
+f => motpasos:u2.f
+h => motpasos:u2.h
+led[0] <= motpasos:u2.led[0]
+led[1] <= motpasos:u2.led[1]
+led[2] <= motpasos:u2.led[2]
+led[3] <= motpasos:u2.led[3]
+mot[0] <= motpasos:u2.mot[0]
+mot[1] <= motpasos:u2.mot[1]
+mot[2] <= motpasos:u2.mot[2]
+mot[3] <= motpasos:u2.mot[3]
+
+
+|motor|divf:u1
+clk => clkl~reg0.CLK
+clk => conteo[0].CLK
+clk => conteo[1].CLK
+clk => conteo[2].CLK
+clk => conteo[3].CLK
+clk => conteo[4].CLK
+clk => conteo[5].CLK
+clk => conteo[6].CLK
+clk => conteo[7].CLK
+clk => conteo[8].CLK
+clk => conteo[9].CLK
+clk => conteo[10].CLK
+clk => conteo[11].CLK
+clk => conteo[12].CLK
+clk => conteo[13].CLK
+clk => conteo[14].CLK
+clk => conteo[15].CLK
+clk => conteo[16].CLK
+clk => conteo[17].CLK
+clkl <= clkl~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|motor|MotPasos:u2
+clk => pres_s[0].CLK
+clk => pres_s[1].CLK
+clk => pres_s[2].CLK
+clk => pres_s[3].CLK
+ud => next_s.OUTPUTSELECT
+ud => next_s.OUTPUTSELECT
+ud => next_s.OUTPUTSELECT
+ud => next_s.OUTPUTSELECT
+ud => next_s.OUTPUTSELECT
+ud => next_s.OUTPUTSELECT
+ud => next_s.OUTPUTSELECT
+ud => next_s.OUTPUTSELECT
+ud => next_s.OUTPUTSELECT
+ud => next_s.OUTPUTSELECT
+ud => next_s.OUTPUTSELECT
+rst => pres_s[0].ACLR
+rst => pres_s[1].ACLR
+rst => pres_s[2].ACLR
+rst => pres_s[3].ACLR
+f => next_s.OUTPUTSELECT
+f => next_s.DATAA
+f => next_s.DATAA
+f => next_s.OUTPUTSELECT
+f => next_s.OUTPUTSELECT
+f => next_s.OUTPUTSELECT
+f => next_s.DATAA
+f => next_s.DATAA
+h => next_s.DATAA
+h => next_s.DATAA
+h => next_s.DATAA
+h => next_s.DATAA
+led[0] <= pres_s[0].DB_MAX_OUTPUT_PORT_TYPE
+led[1] <= pres_s[1].DB_MAX_OUTPUT_PORT_TYPE
+led[2] <= pres_s[2].DB_MAX_OUTPUT_PORT_TYPE
+led[3] <= pres_s[3].DB_MAX_OUTPUT_PORT_TYPE
+mot[0] <= pres_s[0].DB_MAX_OUTPUT_PORT_TYPE
+mot[1] <= pres_s[1].DB_MAX_OUTPUT_PORT_TYPE
+mot[2] <= pres_s[2].DB_MAX_OUTPUT_PORT_TYPE
+mot[3] <= pres_s[3].DB_MAX_OUTPUT_PORT_TYPE
+
+

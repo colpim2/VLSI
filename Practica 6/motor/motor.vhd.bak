@@ -1,0 +1,25 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_arith.all;
+use ieee.std_logic_unsigned.all;
+
+entity motor is
+port( clk, ud, rst, f, h: in std_logic;
+			 led, mot: out std_logic_vector(3 downto 0)
+	  );
+end motor;
+
+
+architecture a of motor is
+
+	signal clkl: std_logic;
+
+begin
+	u1: entity work.divf(a) port map (clk,clkl);
+	u2: entity work.conta(a) port map (clkl, reset, bcd);
+	u3: entity work.dec7seg(a) port map ('0'&bcd, hex0);
+	u4: entity work.dec7seg(a) port map ('0'&bcd, hex1);
+	u5: entity work.dec7seg(a) port map ('0'&bcd, hex2);
+	u6: entity work.dec7seg(a) port map ('0'&bcd, hex3);
+	u7: entity work.dec7seg(a) port map ('0'&bcd, hex4);
+end;

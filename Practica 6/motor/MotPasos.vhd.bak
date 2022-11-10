@@ -1,0 +1,68 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_arith.all;
+use ieee.std_logic_unsigned.all;
+
+entity MotPasos is
+port( clk, ud, rst: in std_logic;
+		          fh: in std_logic_vector(1 downto 0);
+			 led, mot: out std_logic_vector(3 downto 0)
+	  );
+end MotPasos;
+
+architecture behavorial of MotPasos is
+
+	signal div: std_logic_vector(17 downto 0);
+	signal clks: std_logic;
+	type estado is (sm0, sm1, sm2, sm3, sm4, sm5, sm6, sm7, sm8, sm9, sm10);
+	signal pres_s, next_s: estado;
+	signal motor: std_logic_vector(3 downto 0);
+
+begin
+	
+	process(clks, rst)
+	begin
+		if rst = '0' then
+			pres_s <= sm0;
+		elsif clks'event and clks = '1' then
+			pres_s <= next_s;
+		end if;
+	end process;
+	
+	process(pres_s, ud, rst, fh)
+	begin
+		case(pres_s) is
+			when sm0 =>
+				next_s <= sm1;
+			when sm1 =>
+				if fh = "00" then
+					if ud = '1' then
+						next_s <= sm3;
+					else
+						next_s <= sm7;
+					end if;
+				elsif fh = "01" then
+					if ud = '1' then
+						next_s <= sm2;
+					else
+						next_s <= sm8;
+					end if;
+				elsif fh = "10" then
+					if ud = '1' then
+						next_s <= sm2;
+					else
+						next_s <= sm8;
+					end if;
+				elsif fh = "11" then
+					if ud = '1' then
+						next_s <= sm9;
+					else
+						next_s <= sm4;
+					end if;
+				else
+					next_s <= sm1;
+				end if;
+		end case;
+	end process;
+	
+end architecture;

@@ -1,0 +1,11 @@
+|suma
+a => salsum.IN0
+a => cout.IN0
+b => salsum.IN1
+b => cout.IN1
+cin => salsum.IN1
+cin => cout.IN1
+salsum << salsum.DB_MAX_OUTPUT_PORT_TYPE
+cout << cout.DB_MAX_OUTPUT_PORT_TYPE
+
+

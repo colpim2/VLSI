@@ -1,0 +1,16 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity ControlTREN is 
+port(clk,estacion,alto,emergencia,direccion:in std_logic;
+		alto2,alto1,izq,der:out std_logic);
+end ControlTREN;
+
+architecture a of ControlTREN is
+signal clkl: std_logic;
+
+begin
+	u1: entity work.relojlento(a) port map (clk,clkl);
+	u2: entity work.states(arqstates) port map (clkl,estacion,alto,emergencia,direccion,alto2,alto1,izq,der);
+end architecture a;
+	

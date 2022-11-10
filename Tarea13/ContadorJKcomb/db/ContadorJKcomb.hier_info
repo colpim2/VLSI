@@ -1,0 +1,38 @@
+|ContadorJKcomb
+clk => ffjk:u2.clk
+clk => ffjk:u3.clk
+Q1 <= Q1.DB_MAX_OUTPUT_PORT_TYPE
+Q0 <= Q0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ContadorJKcomb|combinacional:u1
+Q0 => K1.DATAIN
+Q0 => J1.DATAIN
+Q1 => ~NO_FANOUT~
+Q2 => ~NO_FANOUT~
+J0 <= <VCC>
+J1 <= Q0.DB_MAX_OUTPUT_PORT_TYPE
+J2 <= J2.DB_MAX_OUTPUT_PORT_TYPE
+K0 <= <VCC>
+K1 <= Q0.DB_MAX_OUTPUT_PORT_TYPE
+K2 <= comb.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ContadorJKcomb|FFJK:u2
+clk => notq~reg0.CLK
+clk => q~reg0.CLK
+j => q.IN1
+k => q.IN1
+q <> q~reg0
+notq <> notq~reg0
+
+
+|ContadorJKcomb|FFJK:u3
+clk => notq~reg0.CLK
+clk => q~reg0.CLK
+j => q.IN1
+k => q.IN1
+q <> q~reg0
+notq <> notq~reg0
+
+

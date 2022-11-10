@@ -1,0 +1,30 @@
+Library ieee;
+use ieee.std_logic_1164.all;
+
+Entity combinacional is
+Port( Q0, Q1, Q2: in std_logic;
+		J0, J1, J2: out std_logic;
+		K0, K1, K2: out std_logic
+);
+End ContadorJKcomb;
+
+Architecture arqContJK of ContadorJKcomb is
+Signal k0,j0,k1,j1,q0,q1,notq0,norq1: std_logic;
+
+Begin
+	-- JK
+	j0<='1';
+	k0<='1';
+	j1<=q0;
+	k1<=q0;
+	
+	u1: entity work.CombinacionalFFJK(arqCombFFJK) port map(q0,q1,notq0,notq1,j0,j1,k0,k1);
+	
+	u2: entity work.FFJK(arqFFJK) port map(clk,j0,k0,q0,notq0);
+	u3: entity work.FFJK(arqFFJK) port map(clk,j1,k1,q1,notq1);
+	
+	--Q+1
+	sq1<=q1;
+	sq0<=q0;	
+	
+End Architecture;

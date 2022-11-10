@@ -1,0 +1,26 @@
+|ejer63
+clk => ffd:u2.clk
+clk => ffd:u3.clk
+Q0 <> combinacional:u1.Q0
+Q0 <> Q0
+Q1 <> combinacional:u1.Q1
+Q1 <> Q1
+
+
+|ejer63|combinacional:u1
+D0 <> D0
+D1 <> D1
+
+
+|ejer63|FFD:u2
+d => Q~reg0.DATAIN
+clk => Q~reg0.CLK
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|ejer63|FFD:u3
+d => Q~reg0.DATAIN
+clk => Q~reg0.CLK
+Q <= Q~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+

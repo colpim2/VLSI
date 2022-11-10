@@ -1,0 +1,76 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity moore is
+port(clk,s,dir: in std_logic;
+		qi: std_logic_vector(2 downto 0);
+		s: out std_logic_vector(6 downto 0));
+end entity;
+
+architecture a of moore is
+subtype state is std_logic_vector(2 downto 0);
+signal present_state, next_state: state;
+constant e0: state:= "000";
+constant e1: state:= "001";
+constant e2: state:= "010";
+constant e3: state:= "011";
+constant e4: state:= "100";
+constant e5: state:= "101";
+
+begin
+present_state <= qi;
+
+process(clk)
+	begin
+	if rising_edge(clk) and s='1' then
+		present_state <= next_state;
+	end if;
+end process;
+
+process(present_state)
+begin
+	case dir is 
+		when '0' =>
+			case present_state is 
+				when e0 => 
+					next_state <= e1;
+					s <= '1111110';
+				when e1 => 
+					next_state <= e2;
+					s <= '1111111';
+				when e2 => 
+					next_state <= e3;
+					s <= '1111111';
+				when e3 => 
+					next_state <= e4;
+					s <= '1111111';
+				when e4 => 
+					next_state <= e5;
+					s <= '1111110';
+				when others => 
+					next_state <= e0;
+					s <= '1111111';
+			end case;
+		when '1' =>
+			case present_state is 
+				when e0 => 
+					next_state <= e5;
+					s <= '1111110';
+				when e1 => 
+					next_state <= e0;
+					s <= '1111111';
+				when e2 => 
+					next_state <= e1;
+					s <= '1111111';
+				when e3 => 
+					next_state <= e2;
+					s <= '1111111';
+				when e4 => 
+					next_state <= e3;
+					s <= '1111110';
+				when others => 
+					next_state <= e4;
+					s <= '1111111';
+	end case;
+end process;
+end;
