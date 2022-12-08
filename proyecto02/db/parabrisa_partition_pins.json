@@ -1,0 +1,117 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "sensor_disp",
+					"strict" : false
+				},
+				{
+					"name" : "control",
+					"strict" : false
+				},
+				{
+					"name" : "led1",
+					"strict" : false
+				},
+				{
+					"name" : "led2",
+					"strict" : false
+				},
+				{
+					"name" : "led3",
+					"strict" : false
+				},
+				{
+					"name" : "dispu[0]",
+					"strict" : false
+				},
+				{
+					"name" : "dispu[1]",
+					"strict" : false
+				},
+				{
+					"name" : "dispu[2]",
+					"strict" : false
+				},
+				{
+					"name" : "dispu[3]",
+					"strict" : false
+				},
+				{
+					"name" : "dispu[4]",
+					"strict" : false
+				},
+				{
+					"name" : "dispu[5]",
+					"strict" : false
+				},
+				{
+					"name" : "dispu[6]",
+					"strict" : false
+				},
+				{
+					"name" : "dispu[7]",
+					"strict" : false
+				},
+				{
+					"name" : "dispd[0]",
+					"strict" : false
+				},
+				{
+					"name" : "dispd[1]",
+					"strict" : false
+				},
+				{
+					"name" : "dispd[2]",
+					"strict" : false
+				},
+				{
+					"name" : "dispd[3]",
+					"strict" : false
+				},
+				{
+					"name" : "dispd[4]",
+					"strict" : false
+				},
+				{
+					"name" : "dispd[5]",
+					"strict" : false
+				},
+				{
+					"name" : "dispd[6]",
+					"strict" : false
+				},
+				{
+					"name" : "dispd[7]",
+					"strict" : false
+				},
+				{
+					"name" : "reversa",
+					"strict" : false
+				},
+				{
+					"name" : "clk",
+					"strict" : false
+				},
+				{
+					"name" : "manual",
+					"strict" : false
+				},
+				{
+					"name" : "rst",
+					"strict" : false
+				},
+				{
+					"name" : "rapido",
+					"strict" : false
+				},
+				{
+					"name" : "sensor_eco",
+					"strict" : false
+				}
+			]
+		}
+	]
+}
